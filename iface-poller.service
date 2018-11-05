@@ -1,0 +1,14 @@
+[Unit]
+Description=3G Modem Configurator
+After=network.target
+StartLimitIntervalSec=5
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=root
+ExecStart=/usr/bin/env bash /home/pi/iface-poller.sh
+
+[Install]
+WantedBy=multi-user.target
