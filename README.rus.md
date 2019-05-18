@@ -16,7 +16,7 @@
 
 ### Вариант 1
 
-![Alternative 1](https://github.com/ofhellsfire/rpi-3g-modem-route-mgr/static/images/solution_diagram_01.png)
+![Alternative 1](https://github.com/ofhellsfire/rpi-3g-modem-route-mgr/blob/master/static/images/solution_diagram_01.png)
 
 Вариант 1 преполагает вынесение RPi и 3G модема в отдельное помещение, в котором 3G модем (или 3G модем + антенна) дают устойчивый сигнал.
 
@@ -26,7 +26,7 @@
 
 ### Вариант 2
 
-![Alternative 1](https://github.com/ofhellsfire/rpi-3g-modem-route-mgr/static/images/solution_diagram_02.png)
+![Alternative 1](https://github.com/ofhellsfire/rpi-3g-modem-route-mgr/blob/master/static/images/solution_diagram_02.png)
 
 Вариант 2 предполагает использование мачты на которой крепится антенна. Качественный антенный кабель соединяется с антенной и заводится внутрь дома, где подключается к 3G модему.
 
@@ -35,7 +35,7 @@
 
 ### Вариант 3
 
-![Alternative 1](https://github.com/ofhellsfire/rpi-3g-modem-route-mgr/static/images/solution_diagram_03.png)
+![Alternative 1](https://github.com/ofhellsfire/rpi-3g-modem-route-mgr/blob/master/static/images/solution_diagram_03.png)
 
 Вариант 3 - это слегка изменненный Вариант 2, где добавлен Switch для возможности подключения нескольких устройств.
 
