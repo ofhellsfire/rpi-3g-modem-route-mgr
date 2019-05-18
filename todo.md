@@ -8,3 +8,5 @@
 6. Update README.md with ansible configuring
 7. Remove comments from iface-poller.sh
 8. Add travis-ci
+9. Add and setup DHCP server for RPi (to avoid changing IP manually)
+10. Add documentation!!!
