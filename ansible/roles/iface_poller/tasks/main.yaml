@@ -1,0 +1,58 @@
+- name: create project folder
+  file:
+    path: "{{ dest_main_files }}/{{ project_folder }}"
+    state: directory
+    mode: '0775'
+  tags: [copying]
+
+- name: copy main files
+  copy:
+    src: "{{ role_path }}/../../../{{ item }}"
+    dest: "{{ home_folder }}/{{ project_folder }}/{{ item }}"
+    mode: '0775'
+  with_items:
+    - "iface-poller.sh"
+    - "iface.library.sh"
+    - "iface.vars.sh"
+  tags: [copying]
+
+- name: copy service file
+  copy:
+    src: "{{ role_path }}/templates/iface-poller.service.j2"
+    dest: /etc/systemd/system/iface-poller.service
+    mode: '0664'
+  tags: [copying]
+
+- name: replace timeout config
+  replace:
+    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
+    regexp: "^(TIMEOUT=)\d+$"
+    replace: "\1{{ timeout }}"
+  tags: [config]
+
+- name: replace ethernet interface name
+  replace:
+    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
+    regexp: "^(ETHERNET_IFACE=).+$"
+    replace: "\1{{ ethernet_iface_name }}"
+  tags: [config]
+
+- name: replace usb modem interface name
+  replace:
+    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
+    regexp: "^(USB_MODEM_IFACE=).+$"
+    replace: "\1{{ usb_modem_iface_name }}"
+  tags: [config]
+
+- name: replace ip address
+  replace:
+    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
+    regexp: "^(ETHERNET_IP_ADDR=).+$"
+    replace: "\1{{ ethernet_ip_addr }}"
+  tags: [config]
+
+- name: start service
+  systemd:
+    state: started
+    name: iface-poller
+  tags: [service]

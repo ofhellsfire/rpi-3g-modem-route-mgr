@@ -1,0 +1,5 @@
+- hosts: rpi
+  remote_user: pi
+  serial: 1
+  roles:
+    - iface_poller

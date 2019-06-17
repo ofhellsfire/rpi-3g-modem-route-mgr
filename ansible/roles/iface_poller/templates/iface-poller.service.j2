@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=5
 User=root
-ExecStart=/usr/bin/env bash /home/pi/iface-poller.sh
+ExecStart=/usr/bin/env bash {{ home_folder }}/{{ project_folder }}/iface-poller.sh
 
 [Install]
 WantedBy=multi-user.target

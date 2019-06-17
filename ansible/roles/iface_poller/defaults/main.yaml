@@ -1,0 +1,6 @@
+home_folder: "/home/pi"
+project_folder: "rpi3g"
+timeout: 10
+ethernet_iface_name: "'eth0'"
+usb_modem_iface_name: "'eth1'"
+ethernet_ip_addr: "'192.168.53.1'"
