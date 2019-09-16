@@ -55,4 +55,5 @@
   systemd:
     state: started
     name: iface-poller
+    enabled: yes
   tags: [service]

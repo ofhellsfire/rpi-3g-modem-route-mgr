@@ -9,6 +9,8 @@ Restart=always
 RestartSec=5
 User=root
 ExecStart=/usr/bin/env bash {{ home_folder }}/{{ project_folder }}/iface-poller.sh
+StandardOutput=file:{{ home_folder }}/{{ project_folder }}/iface-poller.log
+StandardError=file:{{ home_folder }}/{{ project_folder }}/iface-poller.err.log
 
 [Install]
 WantedBy=multi-user.target

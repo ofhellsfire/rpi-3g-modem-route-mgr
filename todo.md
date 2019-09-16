@@ -10,3 +10,5 @@
 8. Add travis-ci
 9. Add and setup DHCP server for RPi (to avoid changing IP manually)
 10. Add documentation!!!
+11. Add Pi-Hole
+12. Limit log size for systemd
