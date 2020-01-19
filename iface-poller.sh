@@ -3,20 +3,23 @@
 # case 1: poll, if eth1 is not found, then ensure that: ip for eth0 is set, port forwarding disabled and eth0 is in default route
 # case 2: poll, otherwise ensure that: ip for eth0 is set, port forwarding enabled and eth0 is removed from default route
 
-source iface.vars.sh
-source iface.library.sh
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "${DIR}" ]]; then DIR="${PWD}"; fi
+. "${DIR}/iface.vars.sh"
+. "${DIR}/iface.library.sh"
+
 
 function print_help() {
-echo "Script Name: ${0:2}
+echo "Script Name: ${0:2} [--eth0-ip IPADDRESS --poll-timeout SECONDS]
 
-Simple Helper Utility For Huawei 3G Modem With RaspberryPi
+Simple Service Helper Utility For Huawei 3G Modem With RaspberryPI
 
 Usage:
 -h, --help                 Print usage
 
 OPTIONS
 --eth0-ip                  IP address for eth0 interface
---poll-timeout             Poll cycle timeout
+--poll-timeout             Poll cycle timeout (in seconds)
 "
 }
 

@@ -1,5 +1,6 @@
-- hosts: rpi
-  remote_user: pi
+- hosts: all
   serial: 1
   roles:
+    - pihole
+    - network_config
     - iface_poller

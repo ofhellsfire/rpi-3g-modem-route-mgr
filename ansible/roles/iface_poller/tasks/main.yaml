@@ -1,59 +1,68 @@
 - name: create project folder
   file:
-    path: "{{ dest_main_files }}/{{ project_folder }}"
+    path: "{{ ansible_env.HOME }}/{{ project_folder }}"
     state: directory
     mode: '0775'
-  tags: [copying]
+  tags: [poller, copying]
 
 - name: copy main files
   copy:
     src: "{{ role_path }}/../../../{{ item }}"
-    dest: "{{ home_folder }}/{{ project_folder }}/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/{{ project_folder }}/{{ item }}"
     mode: '0775'
   with_items:
     - "iface-poller.sh"
     - "iface.library.sh"
     - "iface.vars.sh"
-  tags: [copying]
+  tags: [poller, copying]
 
 - name: copy service file
-  copy:
+  template:
     src: "{{ role_path }}/templates/iface-poller.service.j2"
     dest: /etc/systemd/system/iface-poller.service
     mode: '0664'
-  tags: [copying]
+  tags: [poller, copying]
 
-- name: replace timeout config
-  replace:
-    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
-    regexp: "^(TIMEOUT=)\d+$"
-    replace: "\1{{ timeout }}"
-  tags: [config]
+#- name: replace timeout config
+#  replace:
+#    path: "{{ ansible_env.HOME }}/{{ project_folder }}/iface.vars.sh"
+#    regexp: '^(TIMEOUT=)\d+$'
+#    replace: "\\1{{ timeout }}"
+#  tags: [poller, config]
 
 - name: replace ethernet interface name
   replace:
-    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
-    regexp: "^(ETHERNET_IFACE=).+$"
-    replace: "\1{{ ethernet_iface_name }}"
-  tags: [config]
+    path: "{{ ansible_env.HOME }}/{{ project_folder }}/iface.vars.sh"
+    regexp: '^(ETHERNET_IFACE=).+$'
+    replace: "\\1{{ ethernet_iface_name }}"
+  tags: [poller, config]
 
 - name: replace usb modem interface name
   replace:
-    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
-    regexp: "^(USB_MODEM_IFACE=).+$"
-    replace: "\1{{ usb_modem_iface_name }}"
-  tags: [config]
+    path: "{{ ansible_env.HOME }}/{{ project_folder }}/iface.vars.sh"
+    regexp: '^(USB_MODEM_IFACE=).+$'
+    replace: "\\1{{ usb_modem_iface_name }}"
+  tags: [poller, config]
 
 - name: replace ip address
   replace:
-    path: "{{ home_folder }}/{{ project_folder }}/iface.vars.sh"
-    regexp: "^(ETHERNET_IP_ADDR=).+$"
-    replace: "\1{{ ethernet_ip_addr }}"
-  tags: [config]
+    path: "{{ ansible_env.HOME }}/{{ project_folder }}/iface.vars.sh"
+    regexp: '^(ETHERNET_IP_ADDR=).+$'
+    replace: "\\1{{ ethernet_ip_addr }}"
+  tags: [poller, config]
 
 - name: start service
   systemd:
     state: started
     name: iface-poller
     enabled: yes
-  tags: [service]
+  tags: [poller, service]
+
+- name: enable logrotate for poller
+  template:
+    src: "{{ role_path }}/templates/logrotate.conf.j2"
+    dest: /etc/logrotate.d/ifacepoller
+    owner: root
+    group: root
+    mode: '0644'
+  tags: [poller, logging]

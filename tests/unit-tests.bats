@@ -138,6 +138,11 @@ load helpers
   cd ..
   run ./iface-poller.sh --help
   [ "${status}" -eq 0 ]
-  [ "${lines[0]}" = "Script Name: iface-poller.sh" ]
-  [ "${lines[1]}" = "3G Modem Configurator" ]
+  [ "${lines[0]}" = "Script Name: iface-poller.sh [--eth0-ip IPADDRESS --poll-timeout SECONDS]" ]
+  [ "${lines[1]}" = "Simple Service Helper Utility For Huawei 3G Modem With RaspberryPI" ]
+  [ "${lines[2]}" = "Usage:" ]
+  [ "${lines[3]}" = "-h, --help                 Print usage" ]
+  [ "${lines[4]}" = "OPTIONS" ]
+  [ "${lines[5]}" = "--eth0-ip                  IP address for eth0 interface" ]
+  [ "${lines[6]}" = "--poll-timeout             Poll cycle timeout (in seconds)" ]
 }

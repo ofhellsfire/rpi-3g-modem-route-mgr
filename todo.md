@@ -1,14 +1,44 @@
 # TODO List
 
-1. **Add test for help**
-2. Add test for parameters???
-3. Create a solution diagram
-4. Add proper README.md
-5. Add local ansible playbook for configuration
-6. Update README.md with ansible configuring
-7. Remove comments from iface-poller.sh
-8. Add travis-ci
-9. Add and setup DHCP server for RPi (to avoid changing IP manually)
-10. Add documentation!!!
-11. Add Pi-Hole
-12. Limit log size for systemd
+Poller:
+
+1. Add a kind of log rotation (if file exceeds some size start overwrite it) +
+2. Remove comments from iface-poller.sh
+
+
+Ansible: <===
+
+1. Add Pi Hole installation +
+2. Add starting poller service +
+3. Up separate DHCP service or use DHCP service from PI-Hole? +
+
+
+SCM:
+
+1. Start tests on commit
+2. Add and fill out proper readme.md
+3. Add shields to the main github page
+4. Create a solution diagram
+
+
+Installer/Deployer:
+
+1. Add installer which does the following:
+  - installs ansible
+  - executes ansible playbook against targer RPi +
+
+
+Test:
+
+1. Add test for help [DONE]
+
+
+Flow of Deploy:
+
+1. Setup poller
+2. Setup DHCP
+
+--- Separate Roles
+
+1. Install Pi Hole
+2. Configure Pi Hole

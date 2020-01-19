@@ -1,4 +1,3 @@
-home_folder: "/home/pi"
 project_folder: "rpi3g"
 timeout: 10
 ethernet_iface_name: "'eth0'"

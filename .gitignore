@@ -1,1 +1,4 @@
 tmp/
+reqs.md
+.python-version
+venv/

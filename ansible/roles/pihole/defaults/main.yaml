@@ -1,0 +1,6 @@
+network_interface_name: eth0
+ethernet_ip_address: 192.168.53.1
+pihole_dns_1: 77.88.8.8
+pihole_dns_2: 77.88.8.1
+dhcp_start_ip_range: 192.168.53.100
+dhcp_end_ip_range: 192.168.53.200

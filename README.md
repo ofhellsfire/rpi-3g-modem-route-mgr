@@ -1,1 +1,32 @@
-WIP
+# RPi 3G Modem Route Mgr
+
+## Setup
+
+Setup locally
+
+```
+PYTHONUNBUFFERED=1 ansible-playbook ansible/iface-poller.yaml -c local --extra-vars 'pihole_password=<password>'
+```
+
+Setup remotely
+
+```
+virtualenv --python=$(which python) venv
+source venv/bin/activate
+pip install ansible
+cd ansible
+PYTHONUNBUFFERED=1 ansible-playbook iface-poller.yaml -i <RPi IP Address>, --extra-vars 'pihole_password=admin' --ask-pass --user andy --ask-become-pass
+```
+
+## Running Unit Tests
+
+### Prerequsites
+
+1. Install [bats](https://github.com/sstephenson/bats#installing-bats-from-source) framework
+
+### Running Tests
+
+```
+cd tests
+bats unit-tests.bats
+```

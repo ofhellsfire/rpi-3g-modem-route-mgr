@@ -1,0 +1,7 @@
+auto {{ network_interface_name }}
+iface {{ network_interface_name }} inet static
+address {{ ethernet_ip_address }}
+netmask {{ ethernet_ip_mask }}
+network {{ ethernet_network }}
+broadcast {{ ethernet_broadcast }}
+dns-nameservers {{ ethernet_dns }}
