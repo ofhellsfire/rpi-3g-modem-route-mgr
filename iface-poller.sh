@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# case 1: poll, if eth1 is not found, then ensure that: ip for eth0 is set, port forwarding disabled and eth0 is in default route
-# case 2: poll, otherwise ensure that: ip for eth0 is set, port forwarding enabled and eth0 is removed from default route
+# case 1: poll, if eth1 is not found, then ensure that:
+# ip for eth0 is set, port forwarding disabled and eth0 is in default route
+# case 2: poll, otherwise ensure that: ip for eth0 is set,
+# port forwarding enabled and eth0 is removed from default route
 
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${DIR}" ]]; then DIR="${PWD}"; fi
