@@ -1,6 +1,7 @@
 - hosts: all
   serial: 1
   roles:
+    - common
     - pihole
     - network_config
     - iface_poller

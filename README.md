@@ -15,7 +15,7 @@ virtualenv --python=$(which python) venv
 source venv/bin/activate
 pip install ansible
 cd ansible
-PYTHONUNBUFFERED=1 ansible-playbook iface-poller.yaml -i <RPi IP Address>, --extra-vars 'pihole_password=admin' --ask-pass --user andy --ask-become-pass
+PYTHONUNBUFFERED=1 ansible-playbook iface-poller.yaml -i <RPi IP Address>, --extra-vars 'pihole_password=<password>' --ask-pass --user <user> --ask-become-pass
 ```
 
 ## Running Unit Tests

@@ -39,7 +39,9 @@ function main() {
   parse_args $@
 
   while true; do
+    echo $(date)
     poll
+    echo ''
     sleep ${TIMEOUT}
   done
 
