@@ -1,4 +1,4 @@
-# RPi 3G Modem Route Mgr
+# RPi 3G Modem Route Mgr [![Build Status](https://travis-ci.com/ofhellsfire/rpi-3g-modem-route-mgr.svg?branch=master)](https://travis-ci.com/github/ofhellsfire/rpi-3g-modem-route-mgr)
 
 ## Setup
 

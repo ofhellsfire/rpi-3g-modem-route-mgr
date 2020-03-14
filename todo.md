@@ -15,9 +15,9 @@ Ansible: <===
 
 SCM:
 
-1. Start tests on commit (add .travis.yml)
+1. Start tests on commit (add .travis.yml)   [DONE]
 2. Add and fill out proper readme.md
-3. Add shields to the main github page
+3. Add shields to the main github page       [DONE]
 4. Create a solution diagram
 
 
