@@ -1,0 +1,17 @@
+language: shell
+
+os:
+  - linux
+
+dist:
+  - bionic
+
+before_script:
+  - git clone https://github.com/sstephenson/bats.git
+  - cd bats
+  - ./install.sh /usr/local
+  - cd ..
+
+script:
+  - cd tests
+  - bats unit-tests.bats
